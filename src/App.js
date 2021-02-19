@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import { Container } from "react-bootstrap";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Landing from "./components/landing";
+import Classes from "./components/Classes";
+import Spells from "./components/Spell";
+import Barbarian from "./components/Barbarian";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container className="appContainer">
+      <BrowserRouter>
+        <Landing></Landing>
+        <Switch>
+          <Route path="/classes">
+            <Classes />
+          </Route>
+          <Route path="/barbarian">
+            <Barbarian />
+          </Route>
+          <Route path="/spells">
+            <Spells />
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    </Container>
   );
 }
 
