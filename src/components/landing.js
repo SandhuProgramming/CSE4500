@@ -10,14 +10,22 @@ import {
 } from "react-bootstrap";
 import DragonsNav from "./NavDragonsLibrary";
 import Dice from "./dice.png";
+import { BrowserView, MobileView } from "react-device-detect";
 
 const landing = () => {
   return (
-    <Container classname="landingContainer">
-      <div className="landingDiv1"></div>
-      <DragonsNav />
-      <img className="dice" src={Dice}></img>
-    </Container>
+    <>
+      <BrowserView>
+        <Container classname="landingContainer">
+          <div className="landingDiv1"></div>
+          <DragonsNav />
+          <img className="dice" src={Dice}></img>
+        </Container>
+      </BrowserView>
+      <MobileView>
+        <DragonsNav />
+      </MobileView>
+    </>
   );
 };
 
