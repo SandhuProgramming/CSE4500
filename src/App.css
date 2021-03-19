@@ -28,7 +28,7 @@ body {
 .navMobileContainer {
   width: 90vw !important;
   height: 10vh !important;
-  margin-top: 200px;
+  margin-top: 160px;
   margin-left: 200px !important;
 }
 .navBar {
@@ -62,6 +62,9 @@ body {
   margin-top: -550px;
   height: 730px;
   overflow-y: scroll;
+  border: 25px solid transparent;
+  border-image: url("./components/rope.png") 50 round;
+  background-color: transparent !important;
 }
 .classJumboMobile {
   width: 85vw !important;
@@ -73,4 +76,16 @@ body {
 .dropdownDivMobile {
   padding-top: 40vh;
   padding-left: 35vw;
+}
+.classTitle {
+  width: 300px;
+  height: 150px;
+  background-image: url("./components/Title.png") !important;
+  background-size: 300px 150px;
+  background-repeat: no-repeat;
+  text-align: center;
+  padding-top: 5vh;
+}
+.subTitle {
+  margin-top: 20px;
 }

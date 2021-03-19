@@ -4,9 +4,9 @@ import axios from "axios";
 import { Container, Jumbotron, Button } from "react-bootstrap";
 import { BrowserView, MobileView } from "react-device-detect";
 
-const Barbarian = () => {
+const Rogue = () => {
   const axios = require("axios");
-  const [barbarian, setBarbarian] = useState([]);
+  const [dndClass, setDndClass] = useState([]);
   const [proficiencyChoices, setProfChoices] = useState([]);
   const [proficiency, setProf] = useState([]);
   const [savingThrows, setSavingThrows] = useState([]);
@@ -14,33 +14,31 @@ const Barbarian = () => {
   const [startingEquipmentOptions, setstartingEquipmentOptions] = useState([]);
   const [subClasses, setSubClasses] = useState([]);
 
-  const getBarbarian = async () => {
-    const barbariansName = await axios(
-      `https://www.dnd5eapi.co/api/classes/barbarian`
+  const getDnDClass = async () => {
+    const dndClassName = await axios(
+      `https://www.dnd5eapi.co/api/classes/rogue`
     );
-    console.log(barbariansName.data.starting_equipment_options);
-    setBarbarian(barbariansName.data);
-    setProfChoices(barbariansName.data.proficiency_choices[0].from);
-    setProf(barbariansName.data.proficiencies);
-    setSavingThrows(barbariansName.data.saving_throws);
-    setstartingEquipment(barbariansName.data.starting_equipment);
-    setstartingEquipmentOptions(barbariansName.data.starting_equipment_options);
-    setSubClasses(barbariansName.data.subclasses);
+    console.log(dndClassName.data.starting_equipment_options);
+    setDndClass(dndClassName.data);
+    setProfChoices(dndClassName.data.proficiency_choices[0].from);
+    setProf(dndClassName.data.proficiencies);
+    setSavingThrows(dndClassName.data.saving_throws);
+    setstartingEquipment(dndClassName.data.starting_equipment);
+    setstartingEquipmentOptions(dndClassName.data.starting_equipment_options);
+    setSubClasses(dndClassName.data.subclasses);
   };
 
   useEffect(() => {
-    getBarbarian();
+    getDnDClass();
   }, []);
-
-  let screenWidth = 1140;
 
   return (
     <>
       <BrowserView>
         <Container>
           <Jumbotron className="classJumbo">
-            <h1 className="classTitle">{barbarian.name}</h1>
-            <h3 className="subTitle">Hit Die: {barbarian.hit_die}</h3>
+            <h1 className="classTitle">{dndClass.name}</h1>
+            <h3 className="subTitle">Hit Die: {dndClass.hit_die}</h3>
             <h3 className="subTitle">
               Proficiency Choices:
               {proficiencyChoices.map((name) => (
@@ -65,17 +63,7 @@ const Barbarian = () => {
                 <h4>{name.equipment.name}</h4>
               ))}
             </h3>
-            <h3 className="subTitle">
-              Starting Equipment Options:
-              {startingEquipmentOptions.map((name) => (
-                <>
-                  <h4>{name.from[0].equipment.name}</h4>
-                  <h4>
-                    {name.from[1].equipment_option.from.equipment_category.name}
-                  </h4>
-                </>
-              ))}
-            </h3>
+            <h3 className="subTitle">Starting Equipment Options:</h3>
             <h3 className="subTitle">Sub Classes:</h3>
           </Jumbotron>
         </Container>
@@ -84,8 +72,8 @@ const Barbarian = () => {
       <MobileView>
         <Container>
           <Jumbotron className="classJumboMobile">
-            <h1>{barbarian.name}</h1>
-            <h3 className="subTitle">Hit Die: {barbarian.hit_die}</h3>
+            <h1>{dndClass.name}</h1>
+            <h3 className="subTitle">Hit Die: {dndClass.hit_die}</h3>
             <h3 className="subTitle">
               Proficiency Choices:
               {proficiencyChoices.map((name) => (
@@ -110,17 +98,7 @@ const Barbarian = () => {
                 <h4>{name.equipment.name}</h4>
               ))}
             </h3>
-            <h3 className="subTitle">
-              Starting Equipment Options:
-              {startingEquipmentOptions.map((name) => (
-                <>
-                  <h4>{name.from[0].equipment.name}</h4>
-                  <h4>
-                    {name.from[1].equipment_option.from.equipment_category.name}
-                  </h4>
-                </>
-              ))}
-            </h3>
+            <h3 className="subTitle">Starting Equipment Options:</h3>
             <h3 className="subTitle">Sub Classes:</h3>
           </Jumbotron>
         </Container>
@@ -129,4 +107,4 @@ const Barbarian = () => {
   );
 };
 
-export default Barbarian;
+export default Rogue;
