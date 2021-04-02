@@ -37,12 +37,13 @@ const Barbarian = () => {
   return (
     <>
       <BrowserView>
-        <Container>
+        <Container fluid>
           <Jumbotron className="classJumbo">
             <h1 className="classTitle">{barbarian.name}</h1>
             <h3 className="subTitle">Hit Die: {barbarian.hit_die}</h3>
             <h3 className="subTitle">
               Proficiency Choices:
+              <h4>Choose: 2</h4>
               {proficiencyChoices.map((name) => (
                 <h4>{name.name}</h4>
               ))}

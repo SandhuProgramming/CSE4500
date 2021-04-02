@@ -35,7 +35,7 @@ const Monk = () => {
   return (
     <>
       <BrowserView>
-        <Container>
+        <Container fluid>
           <Jumbotron className="classJumbo">
             <h1 className="classTitle">{dndClass.name}</h1>
             <h3 className="subTitle">Hit Die: {dndClass.hit_die}</h3>

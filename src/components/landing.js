@@ -19,7 +19,6 @@ const landing = () => {
         <Container classname="landingContainer">
           <div className="landingDiv1"></div>
           <DragonsNav />
-          <img className="dice" src={Dice}></img>
         </Container>
       </BrowserView>
       <MobileView>

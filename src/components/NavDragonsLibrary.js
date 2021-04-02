@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import DragonLogo from "./dragon.png";
 import { NavLink } from "react-router-dom";
 import { BrowserView, MobileView } from "react-device-detect";
+import Dice from "./dice.png";
 
 const NavDragonsLibrary = () => {
   return (
@@ -24,6 +25,7 @@ const NavDragonsLibrary = () => {
               </Nav.Link>
             </Nav>
           </Navbar>
+          <img className="dice" src={Dice}></img>
         </Container>
       </BrowserView>
       <MobileView>

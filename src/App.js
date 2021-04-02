@@ -17,6 +17,7 @@ import Rogue from "./components/Rogue";
 import Sorcerer from "./components/Sorcerer";
 import Warlock from "./components/Warlock";
 import Wizard from "./components/Wizard";
+import AcidArrow from "./components/AcidArrow";
 function App() {
   return (
     <>
@@ -66,6 +67,9 @@ function App() {
               </Route>
               <Route path="/spells">
                 <Spells />
+              </Route>
+              <Route>
+                <AcidArrow />
               </Route>
             </Switch>
           </BrowserRouter>

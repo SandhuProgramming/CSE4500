@@ -8,7 +8,11 @@ body {
   background-image: url("./components/book.png");
   width: 100vw;
   height: 100vh;
+  min-width: 1140px;
   background-size: 1140px 100vh;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
 }
 .appMobileContainer {
   background-color: lightgray;
@@ -18,10 +22,9 @@ body {
 }
 .navContainer {
   width: 400px !important;
-  margin-left: 80px !important;
-  height: 75vh;
-  position: fixed;
-  margin-right: 100px !important;
+  height: 70vh;
+  position: relative;
+  left: -250px !important;
   border: 200px solid transparent;
   border-image: url("./components/border.png") 1000 stretch;
 }
@@ -43,10 +46,11 @@ body {
   padding-top: 10vh !important;
 }
 .dice {
-  margin-left: 90px !important;
-  margin-top: 150px;
-  width: 400px !important;
-  height: 400px !important;
+  width: 300px !important;
+  height: 300px !important;
+  position: relative;
+  left: -150px;
+  top: 100px;
 }
 .spellDropdown {
   margin-left: 45rem;
@@ -58,8 +62,10 @@ body {
 }
 .classJumbo {
   width: 450px;
-  margin-left: 570px;
-  margin-top: -550px;
+  position: relative;
+  left: 570px !important;
+  right: inherit !important;
+  top: -700px;
   height: 730px;
   overflow-y: scroll;
   border: 25px solid transparent;
