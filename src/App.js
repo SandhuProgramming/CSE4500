@@ -18,6 +18,17 @@ import Sorcerer from "./components/Sorcerer";
 import Warlock from "./components/Warlock";
 import Wizard from "./components/Wizard";
 import AcidArrow from "./components/AcidArrow";
+import AcidSplash from "./components/AcidSplash";
+import Aid from "./components/Aid";
+import Alarm from "./components/Alarm";
+import AlterSelf from "./components/AlterSelf";
+import AnimalFriendship from "./components/AnimalFriendship";
+import AnimalMessenger from "./components/AnimalMessenger";
+import AnimalShapes from "./components/AnimalShapes";
+import AnimateDead from "./components/AnimateDead";
+import AnimateObjects from "./components/AnimateObjects";
+import AntilifeShell from "./components/AntilifeShell";
+
 function App() {
   return (
     <>
@@ -68,8 +79,38 @@ function App() {
               <Route path="/spells">
                 <Spells />
               </Route>
-              <Route>
+              <Route path="/acid-arrow">
                 <AcidArrow />
+              </Route>
+              <Route path="/acid-splash">
+                <AcidSplash />
+              </Route>
+              <Route path="/aid">
+                <Aid />
+              </Route>
+              <Route path="/alarm">
+                <Alarm />
+              </Route>
+              <Route path="/alter-self">
+                <AlterSelf />
+              </Route>
+              <Route path="/animal-friendship">
+                <AnimalFriendship />
+              </Route>
+              <Route path="/animal-messenger">
+                <AnimalMessenger />
+              </Route>
+              <Route path="/animal-shapes">
+                <AnimalShapes />
+              </Route>
+              <Route path="/animate-dead">
+                <AnimateDead />
+              </Route>
+              <Route path="/animate-objects">
+                <AnimateObjects />
+              </Route>
+              <Route path="/antilife-shell">
+                <AntilifeShell />
               </Route>
             </Switch>
           </BrowserRouter>
@@ -121,6 +162,12 @@ function App() {
               </Route>
               <Route path="/spells">
                 <Spells />
+              </Route>
+              <Route>
+                <AcidArrow />
+              </Route>
+              <Route>
+                <AcidSplash />
               </Route>
             </Switch>
           </BrowserRouter>

@@ -4,27 +4,25 @@ import axios from "axios";
 import { Container, Jumbotron, Button } from "react-bootstrap";
 import { BrowserView, MobileView } from "react-device-detect";
 
-const AcidArrow = () => {
+const Alarm = () => {
   const axios = require("axios");
   const [dndSpell, setDndSpell] = useState([]);
   const [dndSpellClasses, setDndSpellClasses] = useState([]);
   const [dndSpellComponents, setdndSpellComponents] = useState([]);
-  const [dndSpellDamage, setdndSpellDamage] = useState([]);
-  const [dndSpellDamageType, setdndSpellDamageType] = useState([]);
   const [dndSpellSchool, setdndSpellSchool] = useState([]);
   const [dndSpellSubclasses, setdndSpellSubclasses] = useState([]);
+  const [dndSpellAoE, setdndSpellAoE] = useState([]);
+  const [dndSpellAoESize, setdndSpellAoESize] = useState([]);
 
   const getDnDClass = async () => {
-    const dndSpells = await axios(
-      `https://www.dnd5eapi.co/api/spells/acid-arrow`
-    );
+    const dndSpells = await axios(`https://www.dnd5eapi.co/api/spells/alarm`);
     setDndSpell(dndSpells.data);
     setDndSpellClasses(dndSpells.data.classes);
     setdndSpellComponents(dndSpells.data.components);
-    setdndSpellDamage(dndSpells.data.damage.damage_at_slot_level);
-    setdndSpellDamageType(dndSpells.data.damage.damage_type);
     setdndSpellSchool(dndSpells.data.school);
     setdndSpellSubclasses(dndSpells.data.subclasses);
+    setdndSpellAoE(dndSpells.data.area_of_effect.type);
+    setdndSpellAoESize(dndSpells.data.area_of_effect.size);
   };
   useEffect(() => {
     getDnDClass();
@@ -51,15 +49,12 @@ const AcidArrow = () => {
                 <h4>{name}</h4>
               ))}
             </h3>
-            <h3 className="subTitle">Damage Type: {dndSpellDamageType.name}</h3>
             <h3 className="subTitle">
-              Damage:
-              <h5>
-                Levels:
-                {Object.keys(dndSpellDamage) + ""}
-              </h5>
-              <h5> Dice Damage: {Object.values(dndSpellDamage) + ""}</h5>
+              Area of Effect:
+              <h4>Type: {dndSpellAoE}</h4>
+              <h4>Size: {dndSpellAoESize}</h4>
             </h3>
+
             <h3 className="subTitle">
               Concentration: {String(dndSpell.concentration)}
             </h3>
@@ -84,4 +79,4 @@ const AcidArrow = () => {
   );
 };
 
-export default AcidArrow;
+export default Alarm;

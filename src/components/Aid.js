@@ -4,7 +4,7 @@ import axios from "axios";
 import { Container, Jumbotron, Button } from "react-bootstrap";
 import { BrowserView, MobileView } from "react-device-detect";
 
-const AcidArrow = () => {
+const Aid = () => {
   const axios = require("axios");
   const [dndSpell, setDndSpell] = useState([]);
   const [dndSpellClasses, setDndSpellClasses] = useState([]);
@@ -15,14 +15,11 @@ const AcidArrow = () => {
   const [dndSpellSubclasses, setdndSpellSubclasses] = useState([]);
 
   const getDnDClass = async () => {
-    const dndSpells = await axios(
-      `https://www.dnd5eapi.co/api/spells/acid-arrow`
-    );
+    const dndSpells = await axios(`https://www.dnd5eapi.co/api/spells/aid`);
     setDndSpell(dndSpells.data);
     setDndSpellClasses(dndSpells.data.classes);
     setdndSpellComponents(dndSpells.data.components);
-    setdndSpellDamage(dndSpells.data.damage.damage_at_slot_level);
-    setdndSpellDamageType(dndSpells.data.damage.damage_type);
+    setdndSpellDamage(dndSpells.data.heal_at_slot_level);
     setdndSpellSchool(dndSpells.data.school);
     setdndSpellSubclasses(dndSpells.data.subclasses);
   };
@@ -40,6 +37,10 @@ const AcidArrow = () => {
             <h3 className="subTitle">Level: {dndSpell.level}</h3>
             <h3 className="subTitle">Description: {dndSpell.desc}</h3>
             <h3 className="subTitle">
+              At Higher Levels...: {dndSpell.higher_level}
+            </h3>
+
+            <h3 className="subTitle">
               Classes:
               {dndSpellClasses.map((name) => (
                 <h4>{name.name}</h4>
@@ -53,12 +54,12 @@ const AcidArrow = () => {
             </h3>
             <h3 className="subTitle">Damage Type: {dndSpellDamageType.name}</h3>
             <h3 className="subTitle">
-              Damage:
+              Healing:
               <h5>
                 Levels:
                 {Object.keys(dndSpellDamage) + ""}
               </h5>
-              <h5> Dice Damage: {Object.values(dndSpellDamage) + ""}</h5>
+              <h5> Heal at Slot Level: {Object.values(dndSpellDamage) + ""}</h5>
             </h3>
             <h3 className="subTitle">
               Concentration: {String(dndSpell.concentration)}
@@ -67,7 +68,6 @@ const AcidArrow = () => {
             <h3 className="subTitle">Material: {dndSpell.material}</h3>
             <h3 className="subTitle">Range: {dndSpell.range}</h3>
             <h3 className="subTitle">Casting Time: {dndSpell.casting_time}</h3>
-            <h3 className="subTitle">Attack Type: {dndSpell.attack_type}</h3>
             <h3 className="subTitle">Duration: {dndSpell.duration}</h3>
             <h3 className="subTitle">
               Subclasses:
@@ -84,4 +84,4 @@ const AcidArrow = () => {
   );
 };
 
-export default AcidArrow;
+export default Aid;
